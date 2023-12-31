@@ -1,0 +1,2 @@
+# passwordStrength
+creating strength indicator
