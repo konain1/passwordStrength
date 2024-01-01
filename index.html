@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="input-field">
+            <input type="password" id="password" placeholder="Password">
+            <button type="submit"><img src="./arrow.png" alt=""></button>
+            <div class="message" id="message">password is <span id="strength"></span></div>
+        </div>
+    </div>
+    <script>
+        let pass = document.getElementById('password')
+        let msg = document.getElementById('message')
+        let str = document.getElementById('strength')
+
+        pass.addEventListener('input',()=>{
+            if(pass.value.length > 0){
+                msg.style.display = 'block'
+            }else{
+                msg.style.display = 'none'
+
+            }
+            if(pass.value.length < 4){
+                str.innerHTML = 'weak'
+                str.style.color = 'red'
+            }else if(pass.value.length >= 4 && pass.value.length < 8){
+                str.innerHTML = 'medium'
+                str.style.color = 'yellow'
+            }else if(pass.value.length > 8 && pass.value.includes('$')){
+                str.innerHTML = 'Very Strong'
+                str.style.color = 'purple'
+            }else if(pass.value.length > 8 ){
+                str.innerHTML = 'Strong'
+                str.style.color = 'green'
+            }
+        })
+
+
+    </script>
+</body>
+</html>
